@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vue + json</title>
+        <style media="screen">
+
+        </style>
+    </head>
+    <body>
+
+        <div id="main_page">
+            <div v-for="(tweet, key) in el.Like" class="block">
+                <div v-if="el.Image[key].length == 1">
+                    <div class="media_containor">
+                        <img v-bind:src="el.Image[key]">
+                    </div>
+                    <div class="likes">
+                        <img src="./src/img/like.svg" alt="" class="icon">
+                        <strong>{{tweet}}</strong>
+                    </div>
+                </div>
+
+                <div v-else-if="el.Image[key].length == 2">
+                    <div class="media_containor_two">
+                        <div class="half_width_photo">
+                            <img v-bind:src="el.Image[key][0]">
+                        </div>
+                        <div class="half_width_photo">
+                            <img v-bind:src="el.Image[key][1]">
+                        </div>
+                    </div>
+                    <div class="likes">
+                        <img src="./src/img/like.svg" alt="" class="icon">
+                        <strong>{{tweet}}</strong>
+                    </div>
+                </div>
+
+                <div v-else-if="el.Image[key].length == 3">
+                    <div class="media_containor_three">
+                        <div class="two_third">
+                            <div v-if="el.Size[key][0][0] >= el.Size[key][0][1]" style="position: relative; overflow: hidden; height: 100%;">
+                                <img v-bind:src="el.Image[key][0]" style="height: 100%; left: -46px">
+                            </div>
+                            <div v-else style="position: relative; overflow: hidden; height: 100%;">
+                                <img v-bind:src="el.Image[key][0]" style="width: 100%; top: -46px">
+                            </div>
+                        </div>
+                        <div class="third">
+                            <div class="half_colum">
+                                <div v-if="el.Size[key][1][0] >= el.Size[key][1][1]" style="position: relative; overflow: hidden; height: 100%;">
+                                    <img v-bind:src="el.Image[key][0]" style="height: 100%; left: -46px">
+                                </div>
+                                <div v-else style="position: relative; overflow: hidden; height: 100%;">
+                                    <img v-bind:src="el.Image[key][0]" style="width: 100%; top: -46px">
+                                </div>
+                            </div>
+                            <div class="half_colum">
+                                <div v-if="el.Size[key][2][0] >= el.Size[key][2][1]" style="position: relative; overflow: hidden; height: 100%;">
+                                    <img v-bind:src="el.Image[key][2]" style="height: 100%;">
+                                </div>
+                                <div v-else style="position: relative; overflow: hidden; height: 100%;">
+                                    <img v-bind:src="el.Image[key][2]" style="width: 100%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="likes">
+                        <img src="./src/img/like.svg" alt="" class="icon">
+                        <strong>{{tweet}}</strong>
+                    </div>
+                </div>
+
+                <div v-else-if="el.Image[key].length == 4">
+                    <div class="media_containor_four">
+                        <div class="two_third">
+                            <div v-if="el.Size[key][0][0] >= el.Size[key][0][1]" style="position: relative; overflow: hidden; height: 100%;">
+                                <img v-bind:src="el.Image[key][0]" style="height: 100%; left: -46px">
+                            </div>
+                            <div v-else style="position: relative; overflow: hidden; height: 100%;">
+                                <img v-bind:src="el.Image[key][0]" style="width: 100%; top: -46px">
+                            </div>
+                        </div>
+                        <div class="third">
+                            <div class="third_colum">
+                                <div v-if="el.Size[key][1][0] >= el.Size[key][1][1]" style="position: relative; overflow: hidden; height: 100%;">
+                                    <img v-bind:src="el.Image[key][0]" style="height: 100%; left: -46px">
+                                </div>
+                                <div v-else style="position: relative; overflow: hidden; height: 100%;">
+                                    <img v-bind:src="el.Image[key][0]" style="width: 100%; top: -46px">
+                                </div>
+                            </div>
+                            <div class="third_colum">
+                                <div v-if="el.Size[key][2][0] >= el.Size[key][2][1]" style="position: relative; overflow: hidden; height: 100%;">
+                                    <img v-bind:src="el.Image[key][0]" style="height: 100%; left: -46px">
+                                </div>
+                                <div v-else style="position: relative; overflow: hidden; height: 100%;">
+                                    <img v-bind:src="el.Image[key][0]" style="width: 100%; top: -46px">
+                                </div>
+                            </div>
+                            <div class="third_colum">
+                                <div v-if="el.Size[key][3][0] >= el.Size[key][3][1]" style="position: relative; overflow: hidden; height: 100%;">
+                                    <img v-bind:src="el.Image[key][0]" style="height: 100%; left: -46px">
+                                </div>
+                                <div v-else style="position: relative; overflow: hidden; height: 100%;">
+                                    <img v-bind:src="el.Image[key][0]" style="position: relative; overflow: hidden; height: 100%;">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="likes">
+                        <img src="./src/img/like.svg" alt="" class="icon">
+                        <strong>{{tweet}}</strong>
+                    </div>
+                </div>
+
+                <div v-else style="height: 0"></div>
+            </div>
+        </div>
+        <script src="bundle.js" charset="utf-8"></script>
+    </body>
+</html>
